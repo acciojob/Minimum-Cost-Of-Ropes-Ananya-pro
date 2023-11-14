@@ -1,4 +1,4 @@
- 
+  
 function compare(a, b) {
   if (a < b) {
       return -1;
@@ -11,25 +11,19 @@ function compare(a, b) {
  
  
  
-
+function calculateMinCost() {
   //your code here
-  function calculateMinCost() {
-  let ans = 0,
-    arr = document
-      .getElementById("rope-lengths")
-      .value.split(",")
-      .map((val) => parseInt(val));
-  while (arr.length > 1) {
-    arr.sort((a, b) => a - b);
-    arr[1] += arr[0];
-    ans += arr[1];
-    arr.shift();
-  }
-  document.getElementById("result").innerText = ans;
-}
-let result=document.getElementById('result');
-result.innerHTML=total;
-}  
+  let str=document.getElementById('rope-lengths').value.split(",");
+  let arr=str.map((str)=>parseInt(str));
+  // console.log(arr);
+  
+let total=0;
+arr=arr.sort(compare);
+// console.log("arr ",arr);
+while(arr.length>=2){
+  let sum=arr[0]+arr[1];
+  // console.log(sum);
+  let rem=[];
   rem.push(sum);
   for(let k=2;k<arr.length;k++){
     rem.push(arr[k]);
